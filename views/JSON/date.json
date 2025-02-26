@@ -1,0 +1,16 @@
+{
+    "utilizatori": [
+        {
+            "nume": "John",
+            "varsta": 30
+        },
+        {
+            "nume": "Alice",
+            "varsta": 25
+        },
+        {
+            "nume": "Bob",
+            "varsta": 35
+        }
+    ]
+}

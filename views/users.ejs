@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Utilizatori</title>
+</head>
+
+<body>
+    <h2>Utilizatori</h2>
+    <ul id="utilizatori-lista"></ul>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Face o cerere Ajax pentru a prelua datele din fișierul JSON
+            $.ajax({
+                url: '/api/get_users',
+                type: 'GET',
+                dataType: 'json',
+                contentType: 'application/json',
+
+                success: function (data) {
+                    // Procesează datele JSON și afișează utilizatorii într-o listă
+
+                    data.utilizatori.forEach(function (utilizator) {
+                        $('#utilizatori-lista').append('<li>' + utilizator.nume + ' - ' + utilizator.varsta + ' ani</li>');
+                    });
+                    console.log(data);
+                },
+                error: function () {
+                    console.log("error");
+
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
